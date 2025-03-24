@@ -1,6 +1,7 @@
 # 🎓 CGPA Calculator & University Toolkit for BD Students  
 
-![CGPA Calculator](https://drive.google.com/file/d/1dDn7HyiqNo4Clkd4gzauJ1iVo7T3oFvL/view?usp=drive_link)
+![CGPA Calculator](https://drive.google.com/uc?export=view&id=1dDn7HyiqNo4Clkd4gzauJ1iVo7T3oFvL)
+
 
 A modern web application designed to help **Bangladeshi university students** manage their academic life. The platform offers tools such as a **CGPA calculator, routine maker, and other essential utilities** to streamline student workflows.
 
