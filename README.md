@@ -24,5 +24,5 @@ Try the live version: https://campus-aid.netlify.app/
 
 1️⃣ Clone this repository:  
 ```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone https://github.com/AbuZafor99/CGPA-Calculator
+cd CGPA-Calculator
