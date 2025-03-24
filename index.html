@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CGPA Calculator</h1>
+        <div id="universityContainer">
+            <label for="university">Select University:</label>
+            <select id="university">
+                <option value="" disabled selected>Select your university</option>
+                <option value="IUB">IUB</option>
+                <option value="NSU">NSU</option>
+            </select>
+        </div>
+        <form id="cgpaForm">
+            <div class="input-group">
+                <label for="currentCg">Current CGPA (optional):</label>
+                <input type="number" id="currentCg" step="0.01" placeholder="Current CGPA">
+            </div>
+            <div class="input-group">
+                <label for="completedCredits">Completed Credits (optional):</label>
+                <input type="number" id="completedCredits" placeholder="Completed Credits">
+            </div>
+            <div id="coursesContainer">
+                <h2>Courses</h2>
+                <div class="course">
+                    <input type="number" class="courseCredit" placeholder="Credits" required>
+                    <select class="gradeType">
+                        <option value="cg">CG</option>
+                        <option value="num">Number</option>
+                    </select>
+                    <input type="number" class="courseGrade" placeholder="Grade" step="0.01" required>
+                </div>
+            </div>
+            <button type="button" id="addCourse">Add Course</button>
+            <button type="submit">Calculate CGPA</button>
+        </form>
+        <div id="result">
+            <h2>Result</h2>
+            <p id="cgpaOutput"></p>
+            <p id="errorMessage" style="color: red;"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
