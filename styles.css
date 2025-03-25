@@ -1,26 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #333;
+/* Ensure the body and html take full height */
+html, body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
+body {
+    background: url('/images/basic.jpg');
+    background-blend-mode: overlay;
+    color: #333;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding-top: 60px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: rgba(106, 17, 203, 0.1); */
+    pointer-events: none;
+}
+
+/* Container to ensure the content takes full height */
 .container {
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    padding: 20px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 20px 15px;
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     text-align: center;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 h1 {
@@ -102,22 +134,36 @@ form {
     font-size: 1rem;
 }
 
-/* Ensure consistent alignment for the course inputs and remove button */
+/* Course container styles */
 .course {
     display: flex;
-    gap: 10px;
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Add spacing between inputs and the button */
-    margin-bottom: 10px; /* Add spacing between rows */
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .course input,
 .course select {
-    flex: 1; /* Ensure inputs and select boxes take equal space */
-    padding: 10px;
+    flex: 1;
+    min-width: 0;
+    max-width: 100px;
+    padding: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Style for the grade select */
+.course select:last-child {
+    max-width: 70px;
+}
+
+/* Style for the course type select (CG/Number) */
+.course select:nth-child(2) {
+    max-width: 80px;
 }
 
 /* Style the remove button as a circular cross icon */
@@ -163,4 +209,668 @@ button {
 
 button:hover {
     background: #2575fc;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border-top: 1px solid #ddd;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #007bff;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+    position: relative;
+    bottom: 0;
+}
+
+.copyright a {
+    color: #6a11cb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+    color: #2575fc;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        padding: 15px 10px;
+    }
+
+    .course {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #universityContainer {
+        width: 100%;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    .course {
+        flex-direction: row; /* Keep horizontal layout */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        gap: 10px;
+        width: 100%;
+    }
+
+    .course input,
+    .course select {
+        max-width: none; /* Remove max-width constraint on mobile */
+        flex: 1;
+    }
+
+    .course select:last-child {
+        max-width: 80px; /* Keep grade selection compact */
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 10px;
+    }
+
+    .course {
+        gap: 6px;
+    }
+
+    .course input,
+    .course select {
+        padding: 8px 4px;
+        font-size: 0.85rem;
+    }
+
+    #universityContainer {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer {
+        padding: 15px 5px;
+        font-size: 12px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .container {
+        margin-top: 70px;
+    }
+
+    .copyright {
+        padding: 10px 0;
+        margin-top: 20px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px 8px;
+        width: 98%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .course {
+        gap: 4px;
+    }
+
+    .course input,
+    .course select {
+        padding: 6px 4px;
+        font-size: 0.8rem;
+    }
+
+    .course input {
+        max-width: 60px;
+    }
+
+    .course select:nth-child(2) {
+        max-width: 70px;
+    }
+
+    .course select:last-child {
+        max-width: 60px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    #universityContainer {
+        width: 95%;
+        padding: 8px;
+    }
+
+    #universityContainer label {
+        font-size: 0.9rem;
+    }
+
+    #universityContainer select {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .input-group input {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .footer {
+        padding: 10px 5px;
+    }
+
+    .footer-links a {
+        font-size: 12px;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .copyright {
+        padding: 8px 0;
+        margin-top: 15px;
+        font-size: 0.8rem;
+    }
+
+    .container {
+        margin-top: 60px;
+    }
+}
+
+/* Add specific styles for very small devices */
+@media (max-width: 360px) {
+    .container {
+        padding: 8px 5px;
+    }
+
+    .course input,
+    .course select {
+        padding: 5px 3px;
+        font-size: 0.75rem;
+    }
+
+    .course input {
+        max-width: 50px;
+    }
+
+    .course select:nth-child(2) {
+        max-width: 65px;
+    }
+
+    .course select:last-child {
+        max-width: 55px;
+    }
+}
+
+#coursesContainer h2 {
+    display: block; /* Ensure the heading is displayed */
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    visibility: visible; /* Ensure visibility */
+    opacity: 1; /* Ensure opacity is not set to 0 */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6a11cb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    z-index: 1001;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.nav-logo:hover {
+    color: #2575fc;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(106, 17, 203, 0.1);
+    color: #6a11cb;
+}
+
+.nav-toggle {
+    display: none; /* Hide by default on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    padding: 8px;
+    margin-right: 25px;
+    z-index: 1001;
+    flex-shrink: 0;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.nav-toggle:hover {
+    color: #6a11cb;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: flex; /* Only show on mobile */
+        margin-left: auto;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 10px;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+/* About Page Styles */
+.about-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove float animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px; /* Added space before copyright */
+}
+
+.profile-section {
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #f5f5f5;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-section h1 {
+    margin: 10px 0;
+    color: #333;
+    font-size: 2rem;
+}
+
+.profile-section .title {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.about-text {
+    text-align: left;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.about-text:hover {
+    transform: translateY(-5px);
+}
+
+.about-text h2 {
+    color: #6a11cb;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.about-text p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.skills-section {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    background: rgba(106, 17, 203, 0.1);
+    color: #6a11cb;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(106, 17, 203, 0.2);
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin: 15px auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6a11cb;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: #2575fc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Update responsive styles to maintain elevation effect */
+@media (max-width: 768px) {
+    .about-container {
+        margin: 70px auto 30px;
+        min-height: calc(100vh - 160px);
+        padding: 15px 10px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-container:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-text, .skills-section {
+        width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        margin: 60px auto 20px;
+        min-height: calc(100vh - 140px);
+        padding: 10px 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .about-content {
+        gap: 15px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about-text, .skills-section {
+        width: calc(100% - 20px);
+        padding: 15px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
 }

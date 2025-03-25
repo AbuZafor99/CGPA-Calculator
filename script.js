@@ -4,20 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const coursesContainer = document.getElementById('coursesContainer');
     const addCourseButton = document.getElementById('addCourse');
     const resultDiv = document.getElementById('result');
+    const body = document.body;
+
+    // Set an initial background image
+    body.style.backgroundImage = "url('./images/basic.jpg')"; // Replace with your default image path
+    body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
+    body.style.backgroundRepeat = "no-repeat";
 
     // Function to change background based on university selection
     universitySelect.addEventListener('change', function () {
         const selectedUniversity = universitySelect.value;
-        const body = document.body;
 
         if (selectedUniversity === 'IUB') {
             body.style.backgroundImage = "url('./images/iub.jpg')";
         } else if (selectedUniversity === 'NSU') {
             body.style.backgroundImage = "url('./images/nsu.jpg')";
         } else if (selectedUniversity === 'AIUB') {
-            body.style.backgroundImage = "url('./images/aiub.jpg')"; // Added AIUB background image
+            body.style.backgroundImage = "url('./images/aiub.jpg')";
         } else {
-            body.style.backgroundImage = "none"; // Reset if no selection
+            body.style.backgroundImage = "url('./images/basic.jpg')"; // Reset to default if no selection
         }
 
         // Ensure background properties are applied

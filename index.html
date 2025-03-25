@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Campus-Aid</a>
+            <div class="nav-links">
+                <a href="/">CGPA Calculator</a>
+                <a href="/#">AI Helper</a>
+                <a href="/#">Courses</a>
+                <a href="/about.html">About Developer</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>CGPA Calculator</h1>
         <div id="universityContainer">
@@ -15,7 +31,7 @@
                 <option value="" disabled selected>Select your university</option>
                 <option value="IUB">IUB</option>
                 <option value="NSU">NSU</option>
-                <option value="AIUB">AIUB</option> <!-- Added AIUB -->
+                <option value="AIUB">AIUB</option>
             </select>
         </div>
         <form id="cgpaForm">
@@ -46,7 +62,29 @@
             <p id="cgpaOutput"></p>
             <p id="errorMessage" style="color: red;"></p>
         </div>
+        <div class="copyright">
+            © 2025 Developed by <a href="https://github.com/AbuZafor99" target="_blank">Abu Zafor</a>
+        </div>
     </div>
+
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container')) {
+                    navLinks.classList.remove('active');
+                    navToggle.textContent = '☰';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

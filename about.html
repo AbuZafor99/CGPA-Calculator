@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Developer - CGPA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Campus-Aid</a>
+            <button class="nav-toggle">☰</button>
+            <div class="nav-links">
+                <a href="index.html">CGPA Calculator</a>
+                <a href="#">AI Helper</a>
+                <a href="#">Courses</a>
+                <a href="about.html">About Developer</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container about-container">
+        <div class="about-content">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <!-- Replace 'your-image.jpg' with your actual image path -->
+                    <img src="images/iub.jpg" alt="Developer Profile">
+                </div>
+                <h1>Md Abu Zafor</h1>
+                <p class="title">Student of Computer Science and Engineering, IUB</p>
+                <p class="title">App Developer, Web Developer</p>
+            </div>
+
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I am a Computer Science and Engineering (CSE) student at Independent University, Bangladesh (IUB), passionate about software development and technology. My expertise lies in Android development (Java & Flutter) and web development, where I enjoy building efficient and user-friendly applications.
+
+                    I am always eager to learn new technologies, solve challenging problems, and contribute to innovative projects. Whether it's crafting mobile apps, designing responsive websites, or exploring the latest in software engineering, I strive to improve my skills and create meaningful solutions.
+                    
+                </br>🔗 Connect with me on LinkedIn: <a href="https//:www.linkdin.com/">Abu Zafor</a></p>
+                
+                <div class="skills-section">
+                    <h2>Skills</h2>
+                    <div class="skills-list">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                        
+                        <!-- Add more skills as needed -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://yourwebsite.com" target="_blank" class="social-link">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="https://facebook.com/yourusername" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="mailto:your.email@example.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2025 Developed by <a href="https://github.com/AbuZafor99">Abu Zafor</a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                navToggle.textContent = '☰';
+            }
+        });
+    </script>
+</body>
+</html> 
